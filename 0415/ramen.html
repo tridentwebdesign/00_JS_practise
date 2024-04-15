@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>インスタントラーメン</title>
+</head>
+<body>
+    <p id="result"></p>
+
+    <script>
+    const demaeicchou = {
+        name: "出前一丁",
+        soup: "醤油",
+        //メソッド
+        preview: function () {
+            const area = document.querySelector("#result");
+            area.innerHTML = `${this.name}は、${this.soup}ラーメンです。`;
+        },
+    };
+    
+    demaeicchou.preview();
+    //醤油を上書き
+    demaeicchou.soup = "とんこつ";
+    //previewメソッドを上書き
+    demaeicchou.preview = function(){
+        const area = document.querySelector("#result");
+        area.innerHTML = `${this.name}は、${this.soup}ラーメンではありません。`
+    }
+    //出前一丁を消す
+    delete demaeicchou.name;
+
+    //メソッドの再実行
+    demaeicchou.preview();
+
+    class InstantNoodle {
+        //静的プロパティ
+        static TYPE = "インスタントラーメン";
+
+        //静的メソッド
+        static making(){
+            return `<p>${InstantNoodle.TYPE}は、鍋で作ります。</p>`
+        }
+
+        //処理などを書く
+        //コンストラクタ（構造）
+        constructor(ramen, taste) {
+           this.name = ramen;
+           this.soup = taste;
+        }
+        descript(){
+            return `<p>${this.name}は、${this.soup}味です。</p>`
+        }
+    }
+
+    /* //インスタンス化
+    const soltRamen = new InstantNoodle("サッポロ一番塩","塩");
+    console.log(soltRamen); //オブジェクト
+    console.log(soltRamen.name + "は、" + soltRamen.soup + "味");
+
+    const demaeicchouN = new InstantNoodle("出前一丁","醤油");
+    console.log(demaeicchouN); //オブジェクト
+    console.log(demaeicchouN.name + "は、" + demaeicchouN.soup + "味");
+
+    //メソッドを作って、呼び出す
+    console.log(soltRamen.descript(), demaeicchouN.descript());
+    document.body.insertAdjacentHTML("beforeend",soltRamen.descript());
+    document.body.insertAdjacentHTML("beforeend",demaeicchouN.descript()); */
+
+    const ramens = [];
+    ramens.push(new InstantNoodle("サッポロ一番塩","塩"));
+    ramens.push(new InstantNoodle("出前一丁","醤油"));
+    ramens.push(new InstantNoodle("うまかっちゃん","とんこつ"));
+    console.log(ramens); //オブジェクトの配列
+
+    //ramenの中にramensの要素（値）が入る。
+    ramens.forEach((ramen) => {
+        //lengthを書かなくても、要素の数だけ回る
+        document.body.insertAdjacentHTML("beforeend",ramen.descript());
+    })
+
+    document.body.insertAdjacentHTML("beforeend",InstantNoodle.making());
+    console.log(InstantNoodle.TYPE);
+
+
+    </script>
+    
+</body>
+</html>
