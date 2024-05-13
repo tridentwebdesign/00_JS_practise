@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>１週間</title>
+  </head>
+  <body>
+    <script>
+      //東海4県のコード番号をオブジェクトの配列にしておきます。
+      const codeNums = [
+        { 愛知県: 230000 },
+        { 岐阜県: 210000 },
+        { 三重県: 240000 },
+        { 静岡県: 220000 },
+      ];
+
+      //週間天気
+      const weekUrl = `https://www.jma.go.jp/bosai/forecast/data/forecast/${codeNums[0]["愛知県"]}.json`;
+      fetch(weekUrl)
+        .then(function (response) {
+          if (response.status !== 200) {
+            console.log(
+              "問題がありました。ステータスコード:" + response.status
+            );
+            return;
+          }
+          response.json().then(function (data) {
+            console.log(data[1]["timeSeries"][1]["areas"][0]["tempsMax"]);
+          });
+        })
+        .catch(function (err) {
+          console.log("Fetchエラー:", err);
+        });
+    </script>
+  </body>
+</html>

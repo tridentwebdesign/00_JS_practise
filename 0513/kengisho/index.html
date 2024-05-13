@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>お天気アプリ</title>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/swiper.min.css" />
+  </head>
+
+  <body>
+    <div class="swiper-container">
+      <div class="swiper-wrapper pages">
+        <div class="swiper-slide">
+          <h1>愛知県<br />お天気アプリ</h1>
+        </div>
+        <div class="swiper-slide weather" id="today"></div>
+        <div class="swiper-slide weather" id="tomorrow"></div>
+        <div class="swiper-slide weather" id="dat"></div>
+      </div>
+    </div>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/javascript.js"></script>
+    <script>
+      var swiper = new Swiper(".swiper-container");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+
+
+h1 {
+    text-align: center;
+    width: 100%;
+}
+
+h1 img {
+    max-width: 80%;
+}
+
+h2 {
+    margin-bottom: 0;
+}
+
+h2 span {
+    font-size: 80px;
+}
+
+.weather div {
+    height: 200px;
+}
+
+.weather p {
+    margin-top: 0;
+    font-size: 14px;
+}
+
+.weather img {
+    padding: 10px 0;
+    max-width: 200px;
+}
+
+.weather ul {
+    list-style: none;
+    padding: 0;
+}
