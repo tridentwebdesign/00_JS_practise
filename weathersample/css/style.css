@@ -1,0 +1,22 @@
+h1 {
+  text-align: center;
+
+  & span {
+    font-size: 0.7em;
+  }
+}
+
+nav {
+  text-align: center;
+}
+
+.speaker,
+.speakerstop {
+  margin: auto;
+  display: block;
+}
+
+.forecast {
+  margin-inline: auto;
+  text-align: center;
+}
