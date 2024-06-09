@@ -1,0 +1,34 @@
+---
+const { title, description } = Astro.props.frontmatter || Astro.props;
+const pagepath = new URL(Astro.url.pathname, "https://example.com");
+const ogppath = new URL("/ogp.jpg",pagepath);
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title} ｜俺のポートフォリオ</title>
+<meta name="description" content={description}>
+<meta property="og:title" content=`${title}｜俺のポートフォリオ`>
+<meta property="og:description" content={description}>
+<meta property="og:url" content={pagepath}>
+<meta property="og:image" content={ogppath}>
+<meta property="og:type" content="website">
+</head>
+<body>
+<header>
+<h1>俺のポートフォリオ</h1>
+<nav>
+	<a href="/">ホーム</a>
+	<a href="/works">作品</a>
+	<a href="/about">アバウト</a>
+</nav>
+</header>
+<h2>{title}</h2>
+<slot />
+<footer>
+	<p>&copy; 2024 Trident School of Infrmation Technology</p>
+</footer>
+</body>
+</html>
