@@ -1,21 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import { getCollection } from 'astro:content';
+const workPages = await getCollection('works');
 ---
 
 <Layout title="トップページ" description="このWebサイトは、Webデザイナーになるためのポートフォリオサイトです">
 	<main>
-		<section>
-		  <h2>作品1</h2>
-		  <p>ここは作品1です。</p>
-		</section>
-		<section>
-		  <h2>作品2</h2>
-		  <p>ここは作品2です。</p>
-		</section>
-		<section>
-		  <h2>作品3</h2>
-		  <p>ここは作品3です。</p>
-		</section>
+		{workPages.map(productPage => (<Card title={productPage.data.title} href=`/works/${productPage.slug}` thumbnail={productPage.data.thumbnail} body={productPage.data.description} />
+		))}
 	</main>
 </Layout>

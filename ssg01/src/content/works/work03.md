@@ -1,5 +1,4 @@
 ---
-layout: ../layouts/Layout.astro
 title: "作品C"
 description: "犬の画像3を載せています。"
 thumbnail: "dog3.png"
