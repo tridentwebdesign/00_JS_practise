@@ -1,0 +1,52 @@
+---
+import "../style/style.scss"
+
+//フロントマター、astroはJavaScriptで記述します。
+const { title, description } = Astro.props.frontmatter || Astro.props;
+const pagepath = new URL(Astro.url.pathname, "https://example.com");
+const ogppath = new URL("/ogp.jpg",pagepath);
+
+import { ViewTransitions } from 'astro:transitions';
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title} ｜俺のポートフォリオ</title>
+<meta name="description" content={description}>
+<meta property="og:title" content=`${title}｜俺のポートフォリオ`>
+<meta property="og:description" content={description}>
+<meta property="og:url" content={pagepath}>
+<meta property="og:image" content={ogppath}>
+<meta property="og:type" content="website">
+<ViewTransitions />
+</head>
+  <body transition:animate="slide">
+    <header>
+      <h2>{title}</h2>
+      <nav>
+        <a href="/">ホーム</a>
+        <a href="/works">作品</a>
+        <a href="/about">アバウト</a>
+      </nav>
+    </header>
+    <slot />
+    <footer>
+      <p>&copy; 2024 Trident School of Infrmation Technology</p>
+    </footer>
+  </body>
+</html>
+
+<style>
+  h2{color:red;}
+</style>
+
+<script is:inline src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script is:inline>
+$(function(){
+  $("footer p").on("click",()=>{
+    alert($("footer p").text());
+  })
+});
+</script>
